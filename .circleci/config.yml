@@ -19,13 +19,13 @@ workflows:
          repo: 'AWS_DevOps'
          tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
-        requires:
-          - aws-ecr/build-and-push-image
+          requires:
+            - aws-ecr/build-and-push-image
           # ECSのタスク定義名
-            family: 'seeds-test-task'
-            # ECSクラスター名
-            cluster-name: 'seeds-test-container'
-            # ECSのサービス名
-            service-name: 'seeds-test-service'
-            # タスク定義で指定しているコンテナ名
-            container-image-name-updates: 'container=seeds-test,tag=${CIRCLE_SHA1}'
+          family: 'seeds-test-task'
+          # ECSクラスター名
+          cluster-name: 'seeds-test-container'
+          # ECSのサービス名
+          service-name: 'seeds-test-service'
+          # タスク定義で指定しているコンテナ名
+          container-image-name-updates: 'container=seeds-test,tag=${CIRCLE_SHA1}'
