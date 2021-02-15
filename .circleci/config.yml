@@ -16,7 +16,7 @@ workflows:
          region: AWS_REGION
          account-url: AWS_ECR_ACCOUNT_URL
          # GitHubのリポジトリ名
-         repo: 'AWS_DevOps'
+         repo: 'hello-world'
          tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
           requires:
