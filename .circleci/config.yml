@@ -15,12 +15,17 @@ workflows:
       - aws-ecr/build-and-push-image:
          region: AWS_REGION
          account-url: AWS_ECR_ACCOUNT_URL
-         repo: 'AWS_DevOps'　# GitHubのリポジトリ名
+         # GitHubのリポジトリ名
+         repo: 'AWS_DevOps'
          tag: "${CIRCLE_SHA1}"
       - aws-ecs/deploy-service-update:
         requires:
           - aws-ecr/build-and-push-image
-            family: 'seeds-test-task'　# ECSのタスク定義名
-            cluster-name: 'seeds-test-container'　# ECSクラスター名
-            service-name: 'seeds-test-service'　# ECSのサービス名
-            container-image-name-updates: 'container=seeds-test,tag=${CIRCLE_SHA1}'　# タスク定義で指定しているコンテナ名
+          # ECSのタスク定義名
+            family: 'seeds-test-task'
+            # ECSクラスター名
+            cluster-name: 'seeds-test-container'
+            # ECSのサービス名
+            service-name: 'seeds-test-service'
+            # タスク定義で指定しているコンテナ名
+            container-image-name-updates: 'container=seeds-test,tag=${CIRCLE_SHA1}'
