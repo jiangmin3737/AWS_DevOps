@@ -24,7 +24,7 @@ workflows:
           # ECSのタスク定義名
           family: 'seeds-test-task'
           # ECSクラスター名
-          cluster-name: 'seeds-test-container'
+          cluster-name: 'devopstestcluster'
           # ECSのサービス名
           service-name: 'seeds-test-service'
           # タスク定義で指定しているコンテナ名
